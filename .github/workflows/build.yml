@@ -16,8 +16,8 @@ jobs:
       matrix:
         os:
           [
-            { name: ubuntu, version: ubuntu-latest },
-            { name: ubuntu-arm, version: ubuntu-24.04-arm },
+            { name: ubuntu, version: ubuntu-22.04 },
+            { name: ubuntu-arm, version: ubuntu-22.04-arm },
             { name: macos-intel, version: macos-13 },
             { name: macos-arm, version: macos-14 },
           ]
@@ -63,7 +63,7 @@ jobs:
           Release/meshoptdemo.exe demo/pirate.obj
 
   nodejs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -87,7 +87,7 @@ jobs:
           npx es-check es5 gltf/library.js
 
   gltfpack:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -110,7 +110,7 @@ jobs:
           VALIDATOR: https://github.com/KhronosGroup/glTF-Validator/releases/download/2.0.0-dev.3.10/gltf_validator-2.0.0-dev.3.10-linux64.tar.xz
 
   gltfpack-js:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -137,7 +137,7 @@ jobs:
           node js/meshopt_clusterizer.test.js
 
   gltfpack-basis:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       werror: 1
     steps:
@@ -151,7 +151,7 @@ jobs:
         run: make -j2 BASISU=basis_universal gltfpack
 
   gltfpack-coverage:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
